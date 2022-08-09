@@ -15,7 +15,7 @@ function App() {
     languages: '',
     population: ''
   });
-
+  const bottom = document.querySelector('.bottom')
   const getCountry = () => {
     fetch(`https://restcountries.com/v3.1/name/${country}?fullText=true`)
     .then(response => response.json())
@@ -23,7 +23,7 @@ function App() {
       setCountryData({
         name: data[0].name.common,
         capital: data[0].capital,
-        coatOfArms: data[0].coatOfArms.svg,
+        coatOfArms: data[0].coatOfArms.png,
         continent: data[0].continents,
         currencyName: Object.values(data[0].currencies)[0].name,
         currencySymbol: Object.values(data[0].currencies)[0].symbol,
@@ -31,7 +31,7 @@ function App() {
         languages: Object.values(data[0].languages).join(', '),
         population: data[0].population.toLocaleString("en-US")
       })
-      
+      bottom.classList.remove('bottom-off')
       // console.log(data[0])
       // console.log(countryData)
       // console.log(countryData.currencyName)
@@ -61,10 +61,12 @@ function App() {
       </div>
       <h1 className="countryName">{countryData.name}</h1>
       </div>
-      <div className="bottom">
+      <div className="bottom bottom-off">
       <div className="leftContainer">
         <img src={countryData.flag} alt={countryData.name + ' flag'} className="flag" />
+        <div className="coatOfArmsDiv">
         <img src={countryData.coatOfArms} alt={countryData.name + ' coat of arms'} className="coatOfArms" />
+        </div>
       </div>
       <div className="rightContainer">
         <div className="text"><p>Capital: </p><span>{countryData.capital}</span></div>
