@@ -22,6 +22,7 @@ body{
   padding: 2rem;
   width: 50rem;
   height: 37rem;
+  
 }
 
 .searchDiv{
@@ -84,7 +85,7 @@ body{
   height: 15rem;
 }
 .coatOfArms{
-  width: 35%;
+  width: 30%;
   margin-top: 0.5rem;
 }
 
@@ -93,7 +94,7 @@ body{
   flex-direction: column;
   width: 50%;
   align-items: center;
-  padding-left: 15rem;
+  
 }
 
 .rightContainer p{
